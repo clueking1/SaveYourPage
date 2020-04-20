@@ -8,16 +8,22 @@ import './style.css'
 function Home() {
 
     const [search, setSearch] = useState('')
+    const [res, setRes] = useState()
+    const [show, setShow] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault()
-
+        
         API.searchBooks(search)
         .then(res => {
-            console.log(res)
+            setRes(res.data)
         })
-
+        .then(() => {
+            setShow(true)
+        })
+        
     }
+
 
     return (
         <div>
@@ -39,7 +45,8 @@ function Home() {
             </div>
 
             <div className="searchedWrapper">
-                <SearchMedia />
+                {show ? <SearchMedia data={res}/> : <div>Hi</div>}
+         
             </div>
             
         </div>    
