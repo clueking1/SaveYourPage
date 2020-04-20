@@ -23,7 +23,7 @@ const searchMedia = () => {
 
       <div id="myNav" className="overlay">
               <a href="javascript:void(0)" className="closebtn" onClick={closeNav} >&times;</a>
-          <div class="overlay-content">
+          <div className="overlay-content">
             <div className="overlaySearched">
               <div className="bookInfo">
                 <h3>Harry Potter</h3>
