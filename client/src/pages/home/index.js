@@ -3,7 +3,10 @@ import Navi from '../../component/Nav'
 
 function Home() {
     return (
-        <Navi />
+        <div>
+            <Navi />
+            <h2>This is the search page!</h2>
+        </div>    
     )
 }
 
