@@ -5,6 +5,10 @@ export default {
         return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${book}`)
     },
 
+    overlayBook: function(id) {
+        return axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`)
+    },
+
     savedBooks: function() {
         return axios.get('/api/books').then(res => res.data)
     },
