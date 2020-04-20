@@ -1,0 +1,8 @@
+.searchWrapper {
+    text-align: center;
+    width: 800px;
+    margin: 4% auto;
+    margin-bottom: 0;
+    border: 2px groove rgba(128, 128, 128, 0.507);
+    padding: 60px;
+}
