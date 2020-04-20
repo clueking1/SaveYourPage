@@ -16,6 +16,15 @@
     padding: 30px;
 }
 
+.overlaySearched {
+    text-align: center;
+    width: 400px;
+    margin: 4% auto;
+    margin-bottom: 0;
+    border: 2px groove rgba(128, 128, 128, 0.507);
+    padding: 30px;
+}
+
 .bookInfo {
     width: 50%;
     float: left;
