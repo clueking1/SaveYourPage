@@ -1,18 +1,23 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const routes = require('./routes')
+const bookRoutes = require('./routes/books')
+const cors = require('cors')
+
 const app = express()
+
 
 const PORT = process.env.PORT || 3001
 
+app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+app.use('/api/books', bookRoutes)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
 } 
 
-app.use(routes)
+
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/saveyourpage', 
 { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
