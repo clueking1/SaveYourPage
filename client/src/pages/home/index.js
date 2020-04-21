@@ -29,7 +29,7 @@ function Home() {
             <Navi />
 
             <div className='searchWrapper'>
-                <h2>Find Your Book</h2>
+                <h2 className="hTwo">Find Your Book</h2>
                 <p>Search for a book and save it to your library!</p>
                 <form className="form-group mt-5" onSubmit={handleSubmit}>
                     <input
