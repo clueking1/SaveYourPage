@@ -26,18 +26,24 @@ const SearchMedia = (props) => {
   function overlay(id) {
     API.overlayBook(id)
       .then(res => {
-        console.log(res.data.id)
+        console.log(res.data)
         setOver({
           id: res.data.id,
           title: res.data.volumeInfo.title,
           author: res.data.volumeInfo.authors[0],
-          snip: res.data.volumeInfo.description
+          snip: res.data.volumeInfo.description,
+          link: res.data.volumeInfo.previewLink
         })
       })
       .then(() => {
         openNav()
       })
   }
+
+  function saveBook(e) {
+    e.preventDefault()
+    console.log('heyyo')
+}
 
   return (
       <div>
@@ -60,8 +66,8 @@ const SearchMedia = (props) => {
                       <p>Author: <i>{over.author}</i></p>
                     </div>
                     <div className="buttonGroup">
-                      <a href='/'>View</a>
-                      <a href='/'>Save</a>
+                      <a href={over.link} target="_blank">View</a>
+                      <a href="javascript:void(0)" onClick={saveBook}>Save</a>
                     </div>
                 
                     <div className="description">
