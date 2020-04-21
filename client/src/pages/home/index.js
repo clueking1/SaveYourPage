@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Navi from '../../component/Nav'
-import Search from '../../component/SearchInput'
 import SearchMedia from '../../component/searchMedia'
 import API from '../../utils/API'
 import './style.css'

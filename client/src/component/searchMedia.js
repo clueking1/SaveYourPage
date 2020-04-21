@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import API from '../utils/API'
-
-
-
+import Overlay from './overlay'
 
 const SearchMedia = (props) => {
   const [over, setOver] = useState({
@@ -11,21 +9,15 @@ const SearchMedia = (props) => {
     author: '',
     snip: ''
   })
+  const [show, setShow] = useState(false)
 
-  function openNav(id) {
+  function openNav() {
     document.getElementById("myNav").style.width = "100%";
-    console.log(over)
-  }
-  
-  function closeNav() {
-    document.getElementById("myNav").style.width = "0%";
-    //console.log(over)
   }
 
   function overlay(id) {
     API.overlayBook(id)
       .then(async res => {
-        
         await setOver({
           id: res.data.id,
           title: res.data.volumeInfo.title,
@@ -36,14 +28,9 @@ const SearchMedia = (props) => {
       })
       .then(() => {
         console.log(over)
+        setShow(true)
         openNav()
-      })
-  }
 
-  function saveBook(id) {
-    API.saveBook(id)
-      .then(res => {
-        console.log(res)
       })
 }
 
@@ -58,27 +45,9 @@ const SearchMedia = (props) => {
               <span onClick={() => overlay(t.id) }>View More</span>
           </div>
          ))} 
-            <div id="myNav" className="overlay">
-                    <a href="javascript:void(0)" className="closebtn" onClick={closeNav} >&times;</a>
-                <div className="overlay-content">
-                  <div className="overlaySearched">
-                    <div className="bookInfo">
-                      <h3>{over.title}</h3>
-                      {/* <p>{item.volumeInfo.authors[0]}</p> */}
-                      <p>Author: <i>{over.author}</i></p>
-                    </div>
-                    <div className="buttonGroup">
-                      <a href={over.link} target="_blank">View</a>
-                      <a href="javascript:void(0)" onClick={() => saveBook(over.id)}>Save</a>
-                    </div>
-                
-                    <div className="description">
-                      <p>{over.snip}</p>
-                    </div>
-                  </div> 
-                </div>
-            </div>
-          
+       <div>
+            {show ? <Overlay data={over} /> : <div></div>}
+       </div>   
       </div>
        
     
