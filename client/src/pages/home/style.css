@@ -80,6 +80,16 @@
     right: 45px;
     font-size: 60px;
   }
+
+  .viewMore {
+    cursor: pointer;
+
+  }
+
+  .viewDiv {
+    padding: 10px;
+  }
+
   @media screen and (max-width: 850px) {
     .searchWrapper {
       width: 600px;

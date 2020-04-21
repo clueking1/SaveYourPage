@@ -42,7 +42,9 @@ const SearchMedia = (props) => {
                 <div className="image">
                 <img src={t.volumeInfo.imageLinks.thumbnail} alt="img1"/>
               </div>
-              <span onClick={() => overlay(t.id) }>View More</span>
+              <div className="viewDiv">
+              <span onClick={() => overlay(t.id) } className="viewMore">View More</span>
+              </div>
           </div>
          ))} 
        <div>
