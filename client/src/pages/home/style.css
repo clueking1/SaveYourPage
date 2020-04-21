@@ -26,6 +26,24 @@
     padding: 30px;
 }
 
+.navbar a {
+  color: white;
+  transition: .2s ease-in-out;
+}
+
+.navbar a:hover {
+  color: rgba(146, 178, 197, 0.884);
+}
+
+.navbar {
+
+  background-color: rgb(79, 93, 102);
+}
+
+.navbar-toggler {
+  background-color: white;
+}
+
 .bookInfo {
     width: 50%;
     float: left;
