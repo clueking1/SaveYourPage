@@ -7,8 +7,8 @@ router.route('/').get((_, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
-router.route('/save').post((req, res) => {
-    const bookId = req.body.bookId
+router.route('/:id').post((req, res) => {
+    const bookId = req.params.id
 
     const newBook = new SavedBooks({
         bookId

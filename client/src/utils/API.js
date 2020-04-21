@@ -10,7 +10,8 @@ export default {
     },
 
     savedBooks: function() {
-        return axios.get('/api/books').then(res => res.data)
+        return axios.get('/api/books')
+            .then(res => res.data)
     },
 
     saveBook: function(id) {

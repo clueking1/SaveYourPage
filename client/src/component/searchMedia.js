@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css"
 import API from '../utils/API'
-import { CardImgOverlay, CardTitle } from 'reactstrap';
+
 
 
 
@@ -25,9 +24,9 @@ const SearchMedia = (props) => {
 
   function overlay(id) {
     API.overlayBook(id)
-      .then(res => {
-        console.log(res.data)
-        setOver({
+      .then(async res => {
+        
+        await setOver({
           id: res.data.id,
           title: res.data.volumeInfo.title,
           author: res.data.volumeInfo.authors[0],
@@ -36,13 +35,16 @@ const SearchMedia = (props) => {
         })
       })
       .then(() => {
+        console.log(over)
         openNav()
       })
   }
 
-  function saveBook(e) {
-    e.preventDefault()
-    console.log('heyyo')
+  function saveBook(id) {
+    API.saveBook(id)
+      .then(res => {
+        console.log(res)
+      })
 }
 
   return (
@@ -67,7 +69,7 @@ const SearchMedia = (props) => {
                     </div>
                     <div className="buttonGroup">
                       <a href={over.link} target="_blank">View</a>
-                      <a href="javascript:void(0)" onClick={saveBook}>Save</a>
+                      <a href="javascript:void(0)" onClick={() => saveBook(over.id)}>Save</a>
                     </div>
                 
                     <div className="description">
