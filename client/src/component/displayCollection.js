@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import API from '../utils/API'
-import Overlay from './overlay'
+import CollectionOverlay from './CollectionOverLay'
 
 const SearchMedia = (props) => {
     console.log(props)
@@ -16,10 +16,12 @@ const SearchMedia = (props) => {
     document.getElementById("myNav").style.width = "100%";
   }
 
-  function overlay(id) {
+  function overlay(id, hi) {
+    console.log(hi)
     API.overlayBook(id)
       .then(async res => {
         await setOver({
+          _id: hi,
           id: res.data.id,
           title: res.data.volumeInfo.title,
           author: res.data.volumeInfo.authors[0],
@@ -45,14 +47,14 @@ const SearchMedia = (props) => {
                 <img src={t.img} alt="img1"/>
               </div>
               <div className="viewDiv">
-              <span onClick={() => overlay(t.bookId) } className="viewMore">View More</span>
+              <span onClick={() => overlay(t.bookId, t._id) } className="viewMore">View More</span>
               </div>
           </div>
          ))} 
           
      
        <div>
-            {show ? <Overlay data={over} /> : <div></div>}
+            {show ? <CollectionOverlay data={over} /> : <div></div>}
        </div>   
       </div>
        
