@@ -42,7 +42,7 @@ const SearchMedia = (props) => {
           
           <div className="nestedWrapper" key={t.id}>      
                 <div className="image">
-                <img src={t.volumeInfo.imageLinks.thumbnail} alt="img1"/>
+                <img src={t.img} alt="img1"/>
               </div>
               <div className="viewDiv">
               <span onClick={() => overlay(t.id) } className="viewMore">View More</span>
