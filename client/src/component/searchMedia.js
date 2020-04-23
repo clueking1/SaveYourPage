@@ -24,7 +24,8 @@ const SearchMedia = (props) => {
           title: res.data.volumeInfo.title,
           author: res.data.volumeInfo.authors[0],
           snip: res.data.volumeInfo.description,
-          link: res.data.volumeInfo.previewLink
+          link: res.data.volumeInfo.previewLink,
+          img: res.data.volumeInfo.imageLinks.thumbnail
         })
       })
       .then(() => {

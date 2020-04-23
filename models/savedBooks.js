@@ -19,6 +19,9 @@ const savedBooksSchema = new Schema({
     },
     link: {
         type: String,
+    },
+    img: {
+        type: String,
     }
 
 })

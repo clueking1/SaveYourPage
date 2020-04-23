@@ -7,19 +7,15 @@ import './style.css'
 function Home() {
 
     const [search, setSearch] = useState('')
-    const [res, setRes] = useState([])
+    const [res, setRes] = useState({})
     const [show, setShow] = useState(false)
 
     useEffect(() => {
         API.savedBooks()
-        .then(async res =>{
-            await res.map(t => {
-                API.searchBooks(t.bookId)
-                .then(res => {
-                    //console.log(res)
-                    setRes(res.data)
-                })
-            })
+        .then(res =>{
+            setRes(res)
+        })
+        .then(() => {
             setShow(true)
         })
         

@@ -14,7 +14,8 @@ const Overlay = (props) => {
         title: data.title,
         author: data.author,
         snip: data.snip,
-        link: data.link
+        link: data.link,
+        img: data.img
       })
         .then(res => {
           console.log(res)

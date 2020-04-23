@@ -13,13 +13,15 @@ router.route('/').post(({ body }, res) => {
     author = body.author
     snip = body.snip
     link = body.link
+    img = body.img
 
     const newBook = new SavedBooks({
         bookId,
         title,
         author,
         snip,
-        link
+        link,
+        img
     })
 
     newBook.save()
