@@ -40,12 +40,12 @@ const SearchMedia = (props) => {
         
           {props.data.map(t => (
           
-          <div className="nestedWrapper" key={t.id}>      
+          <div className="nestedWrapper" key={t.bookId}>      
                 <div className="image">
                 <img src={t.img} alt="img1"/>
               </div>
               <div className="viewDiv">
-              <span onClick={() => overlay(t.id) } className="viewMore">View More</span>
+              <span onClick={() => overlay(t.bookId) } className="viewMore">View More</span>
               </div>
           </div>
          ))} 
