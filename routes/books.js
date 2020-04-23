@@ -7,11 +7,19 @@ router.route('/').get((_, res) => {
         .catch(err => res.status(400).json('Error: ' + err))
 })
 
-router.route('/:id').post((req, res) => {
-    const bookId = req.params.id
+router.route('/').post(({ body }, res) => {
+    bookId = body.bookId
+    title =  body.title
+    author = body.author
+    snip = body.snip
+    link = body.link
 
     const newBook = new SavedBooks({
-        bookId
+        bookId,
+        title,
+        author,
+        snip,
+        link
     })
 
     newBook.save()

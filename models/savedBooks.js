@@ -7,7 +7,20 @@ const savedBooksSchema = new Schema({
         type: String,
         required: true,
         unique: true
+    },
+    title: {
+        type: String,
+    },
+    author: {
+        type: String,
+    },
+    snip: {
+        type: String,
+    },
+    link: {
+        type: String,
     }
+
 })
 
 const SavedBooks = mongoose.model('SavedBooks', savedBooksSchema)

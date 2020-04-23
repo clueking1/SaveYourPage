@@ -7,9 +7,15 @@ const Overlay = (props) => {
       document.getElementById("myNav").style.width = "0%";
     }
 
-    function saveBook(id) {
+    function saveBook(data) {
   
-      API.saveBook(id)
+      API.saveBook({
+        bookId: data.id,
+        title: data.title,
+        author: data.author,
+        snip: data.snip,
+        link: data.link
+      })
         .then(res => {
           console.log(res)
         })
@@ -29,7 +35,7 @@ const Overlay = (props) => {
                       </div>
                       <div className="buttonGroup">
                         <a href={props.data.link} target="_blank">View</a>
-                        <a href="javascript:void(0)" onClick={() => saveBook(props.data.id)}>Save</a>
+                        <a href="javascript:void(0)" onClick={() => saveBook(props.data)}>Save</a>
                       </div>
                   
                       <div className="description">

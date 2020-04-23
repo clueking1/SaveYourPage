@@ -3,12 +3,12 @@ import API from '../utils/API'
 import Overlay from './overlay'
 
 const SearchMedia = (props) => {
+    console.log(props)
   const [over, setOver] = useState({
     id: '',
     title: '',
     author: '',
-    snip: '',
-    link: ''
+    snip: ''
   })
   const [show, setShow] = useState(false)
 
@@ -37,17 +37,17 @@ const SearchMedia = (props) => {
 
   return (
       <div>
-        {props.data.items.map(t => (
+        
           
-          <div className="nestedWrapper" key={t.id}>      
+          <div className="nestedWrapper" key={props.data.id}>      
                 <div className="image">
-                <img src={t.volumeInfo.imageLinks.thumbnail} alt="img1"/>
+                <img src={props.data.volumeInfo.imageLinks.thumbnail} alt="img1"/>
               </div>
               <div className="viewDiv">
-              <span onClick={() => overlay(t.id) } className="viewMore">View More</span>
+              <span onClick={() => overlay(props.data.id) } className="viewMore">View More</span>
               </div>
           </div>
-         ))} 
+     
        <div>
             {show ? <Overlay data={over} /> : <div></div>}
        </div>   
