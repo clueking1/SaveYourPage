@@ -25,24 +25,26 @@ function Home() {
 
 
     return (
-        <div>
-            <Navi />
+        <div className="searchPage">
+            <div className="backSearch">
+                <Navi />
 
-            <div className='searchWrapper'>
-                <h2 className="hTwo">Find Your Book</h2>
-                <p>Search for a book and save it to your library!</p>
-                <form className="form-group mt-5" onSubmit={handleSubmit}>
-                    <input
-                    className="form-control"
-                    onChange={e => setSearch(e.target.value)}
-                   
-                    />
-                    <button type="submit">
-                    Search
-                    </button>
-                </form>
+                <div className='searchWrapper'>
+                    
+                    <h2 className="hTwo">Save Your Page</h2>
+                    <p>Search for a book and save it to your library!</p>
+                    <form className="form-group mt-5" onSubmit={handleSubmit}>
+                        <input
+                        className="form-control"
+                        onChange={e => setSearch(e.target.value)}
+                    
+                        />
+                        <button type="submit" className="searchBtn">
+                        Search
+                        </button>
+                    </form>
+                </div>
             </div>
-
             <div className="searchedWrapper">
                 {show ? <SearchMedia data={res}/> : <div>Hi</div>}
          

@@ -7,7 +7,7 @@ function App() {
 
   return (
         <Router>
-          <div>
+          <div className="allDiv">
             <Route path='/' exact component={Home} />
             <Route path='/collection' exact component={Collection} />
           </div>
