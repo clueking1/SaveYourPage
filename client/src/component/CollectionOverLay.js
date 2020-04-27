@@ -11,7 +11,7 @@ const CollectionOverlay = (props) => {
         console.log(data)
       API.deleteBook(data)
         .then(res => {
-          console.log(res)
+          closeNav()
         })
   }
   
