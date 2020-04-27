@@ -28,17 +28,21 @@ function Home() {
 
     return (
         <div>
+            <div className="backSearch">
             <Navi />
 
             <div className='searchWrapper'>
                 <h2 className="hTwo">Your Collection</h2>
                 
             </div>
-
+            </div>
             <div className="searchedWrapper">
                 {show ? <DisplayCollection data={res}/> : <div>Hi</div>}
          
             </div>
+
+        
+        
             
         </div>    
     )
