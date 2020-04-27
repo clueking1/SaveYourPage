@@ -25,7 +25,7 @@ router.route('/').post(({ body }, res) => {
     })
 
     newBook.save()
-        .then(() => res.json('Book added!'))
+        .then(() => res.json('hi'))
         .catch(err => res.status(400).json('Error: ' + err ))
 
 })

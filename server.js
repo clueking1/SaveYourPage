@@ -42,7 +42,7 @@ io.on('connection', function(client) {
     console.log('Client connected...');
 
     
-    client.emit('messages', 'Hello from server');
+    client.emit('saved', 'Book Saved!');
     
 })
 

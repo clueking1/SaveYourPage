@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import API from '../utils/API'
 import Overlay from './overlay'
 
@@ -49,8 +49,8 @@ const SearchMedia = (props) => {
               </div>
           </div>
          ))} 
-       <div>
-            {show ? <Overlay data={over} /> : <div></div>}
+       <div> 
+            {show ? <Overlay data={over} test={props.test} /> : undefined}
        </div>   
       </div>
        

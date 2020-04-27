@@ -2,14 +2,20 @@ import React, { useState, useEffect } from 'react';
 import Navi from '../../component/Nav'
 import SearchMedia from '../../component/searchMedia'
 import API from '../../utils/API'
+
 import './style.css'
+import openSocket from 'socket.io-client';
+
+const socket = openSocket('http://localhost:3001');
 
 
-function Home() {
+function Home(props) {
 
     const [search, setSearch] = useState('')
     const [res, setRes] = useState()
     const [show, setShow] = useState(false)
+    const [save, setSave] = useState(false)
+    
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -22,6 +28,24 @@ function Home() {
             setShow(true)
         })
         
+    }
+
+    useEffect(() => {
+        console.log(save)
+     socket.on('saved', function(data) {
+         console.log('hiii')
+              if (save) {
+                  alert(data)
+              } 
+    }, [])
+    
+    
+        
+    })
+
+    function test() {
+        setSave(true)
+        //console.log(save)
     }
 
     return (
@@ -46,7 +70,7 @@ function Home() {
                 </div>
             </div>
             <div className="searchedWrapper">
-                {show ? <SearchMedia data={res}/> : undefined}
+                {show ? <SearchMedia data={res} test={test} /> : undefined}
             </div>
             
         </div>    

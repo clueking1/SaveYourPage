@@ -1,12 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import API from '../utils/API'
-import openSocket from 'socket.io-client'
-const socket = openSocket('http://localhost:3001');
 
 const Overlay = (props) => {
-    console.log(props.data)
+    console.log(props)
     function closeNav() {
       document.getElementById("myNav").style.width = "0%";
+
     }
 
     function saveBook(data) {
@@ -20,17 +19,11 @@ const Overlay = (props) => {
         img: data.img
       })
         .then(res => {
-          
-        })
+          closeNav()
+          props.test()
+      })
   }
 
-        useEffect(() => {
-          socket.on('messages', function(data) {
-              alert(data);
-      });
-      })
-
-  
     return (
         <div>
           <div id="myNav" className="overlay">
