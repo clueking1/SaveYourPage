@@ -6,7 +6,6 @@ import './style.css'
 
 function Home() {
 
-    const [search, setSearch] = useState('')
     const [res, setRes] = useState({})
     const [show, setShow] = useState(false)
 
@@ -20,11 +19,6 @@ function Home() {
         })
         
     }, [])
-
-   
-
-  
-
 
     return (
         <div>

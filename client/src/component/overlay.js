@@ -24,32 +24,25 @@ const Overlay = (props) => {
   
     return (
         <div>
-
-              <div id="myNav" className="overlay">
-                      <a href="javascript:void(0)" className="closebtn" onClick={closeNav} >&times;</a>
-                  <div className="overlay-content">
-                    <div className="overlaySearched">
-                      <div className="bookInfo">
-                        <h3>{props.data.title}</h3>
-                       
-                        <p>Author: <i>{props.data.author}</i></p>
-                      </div>
-                      <div className="buttonGroup">
-                        <a href={props.data.link} target="_blank">View</a>
-                        <a href="javascript:void(0)" onClick={() => saveBook(props.data)}>Save</a>
-                      </div>
-                  
-                      <div className="description">
-                        <p>{props.data.snip}</p>
-                      </div>
-                    </div> 
+          <div id="myNav" className="overlay">
+                    <a href="javascript:void(0)" className="closebtn" onClick={closeNav} >&times;</a>
+              <div className="overlay-content">
+                <div className="overlaySearched">
+                  <div className="bookInfo">
+                    <h3>{props.data.title}</h3>
+                    <p>Author: <i>{props.data.author}</i></p>
                   </div>
+                  <div className="buttonGroup">
+                    <a href={props.data.link} target="_blank">View</a>
+                    <a href="javascript:void(0)" onClick={() => saveBook(props.data)}>Save</a>
+                  </div>
+                  <div className="description">
+                    <p>{props.data.snip}</p>
+                  </div>
+                </div> 
               </div>
-            
-        </div>
-         
-      
-        
+            </div>
+          </div>
     );
   };
   

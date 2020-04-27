@@ -2,8 +2,7 @@ import React from 'react';
 import API from '../utils/API'
 
 const CollectionOverlay = (props) => {
-    console.log('hi')
-    console.log(props.data)
+
     function closeNav() {
       document.getElementById("myNav").style.width = "0%";
     }
