@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navi from '../../component/Nav'
 import SearchMedia from '../../component/searchMedia'
 import API from '../../utils/API'
 import './style.css'
+
 
 function Home() {
 
@@ -22,7 +23,6 @@ function Home() {
         })
         
     }
-
 
     return (
         <div className="searchPage">
@@ -47,7 +47,6 @@ function Home() {
             </div>
             <div className="searchedWrapper">
                 {show ? <SearchMedia data={res}/> : undefined}
-         
             </div>
             
         </div>    

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import API from '../utils/API'
+import openSocket from 'socket.io-client'
+const socket = openSocket('http://localhost:3001');
 
 const Overlay = (props) => {
     console.log(props.data)
@@ -18,9 +20,16 @@ const Overlay = (props) => {
         img: data.img
       })
         .then(res => {
-          console.log(res)
+          
         })
   }
+
+        useEffect(() => {
+          socket.on('messages', function(data) {
+              alert(data);
+      });
+      })
+
   
     return (
         <div>
