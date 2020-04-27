@@ -46,7 +46,7 @@ function Home() {
                 </div>
             </div>
             <div className="searchedWrapper">
-                {show ? <SearchMedia data={res}/> : <div>Hi</div>}
+                {show ? <SearchMedia data={res}/> : undefined}
          
             </div>
             

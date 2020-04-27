@@ -157,7 +157,7 @@ body {
   }
 
   .searchWrapper {
-    
+    background-color: rgb(79, 93, 102);
     box-shadow: rgba(96, 124, 128, 0.658) 10px 10px 10px;
     background-image: url('./imgs/booksTrans3.png');
     color: white;
