@@ -40,9 +40,11 @@ server.listen(3001)
 
 io.on('connection', function(client) {  
     console.log('Client connected...');
-
+    client.on('Clicked', function() {
+        client.emit('saved', 'Book Saved!')
+    })
     
-    client.emit('saved', 'Book Saved!');
+    
     
 })
 

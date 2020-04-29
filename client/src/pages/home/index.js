@@ -30,23 +30,17 @@ function Home(props) {
         
     }
 
-    useEffect(() => {
-        console.log(save)
-     socket.on('saved', function(data) {
-         console.log('hiii')
-              if (save) {
-                  alert(data)
-              } 
-    }, [])
     
-    
-        
-    })
 
     function test() {
-        setSave(true)
-        //console.log(save)
+        
+        console.log(save)
+        socket.emit('Clicked', 'Book')
     }
+
+    socket.on('saved', function() {
+        console.log('alert!!!')
+    })
 
     return (
         <div className="searchPage">
