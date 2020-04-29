@@ -36,12 +36,15 @@ function Home(props) {
         socket.emit('Clicked', 'Book')
     }
 
-    socket.on('saved', function() {
-        console.log('save')
-        setSave(true)
-    })
+    useEffect(() => {
+        socket.on('saved', function() {
+            
+            console.log('save')
+            setSave(true)
+        })
+    },[])
 
-    function deleteAlert() {
+   function deleteAlert() {
         setSave(false)
     }
 
@@ -71,6 +74,7 @@ function Home(props) {
                 
                 <SavedAlert delAlert={deleteAlert}/> : undefined}
             </div>
+          
             <div className="searchedWrapper">
                 {show ? <SearchMedia data={res} test={test} /> : undefined}
             </div>

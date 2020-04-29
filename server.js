@@ -36,19 +36,24 @@ connection.once('open', () => {
 })
 
 
-server.listen(3001)
+
 
 io.on('connection', function(client) {  
-    console.log('Client connected...');
+    
+    
+
+    io.to(client.id).emit('assign-socket', client.id)
+    
     client.on('Clicked', function() {
         client.emit('saved', 'Book Saved!')
+        client.broadcast.emit('saved', 'Book Saved!')
     })
     
     
     
 })
 
-// server.listen(PORT, () => {
-//     console.log('http://localhost:' + PORT)
-// })
+server.listen(PORT, () => {
+    console.log('http://localhost:' + PORT)
+})
 
