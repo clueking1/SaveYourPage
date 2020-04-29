@@ -37,6 +37,7 @@ function Home(props) {
     }
 
     socket.on('saved', function() {
+        console.log('save')
         setSave(true)
     })
 
@@ -62,7 +63,9 @@ function Home(props) {
                 </div>
             </div>
             <div className="alertDiv">
-                {save ? <SavedAlert /> : undefined}
+                {save ? 
+                
+                <SavedAlert /> : undefined}
             </div>
             <div className="searchedWrapper">
                 {show ? <SearchMedia data={res} test={test} /> : undefined}

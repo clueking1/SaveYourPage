@@ -19,6 +19,10 @@ body {
     padding: 30px;
 }
 
+.searchPage {
+  position: relative;
+}
+
 .overlaySearched {
     text-align: center;
     width: 400px;
@@ -124,6 +128,20 @@ body {
   .viewDiv {
     padding: 10px;
   }
+
+  .alertDiv {
+    width: 100%;
+    
+   position: sticky;
+   top: 0;
+}
+
+.fa-remove {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  margin-top: -5px;
+}
 
   @media screen and (max-width: 850px) {
     .searchWrapper {

@@ -6,9 +6,10 @@ const SavedAlert = () => {
     <div>
 
       <Alert color="success">
-        This is a success alert — check it out!
+        Book successfully saved!
+        <i class="fa fa-remove" style={{fontSize: "36px"}}></i>
       </Alert>
-
+      
     </div>
   );
 };
