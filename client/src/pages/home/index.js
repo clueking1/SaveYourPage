@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navi from '../../component/Nav'
 import SearchMedia from '../../component/searchMedia'
 import API from '../../utils/API'
-
+import SavedAlert from '../../component/savedAlert'
 import './style.css'
 import openSocket from 'socket.io-client';
 
@@ -33,13 +33,11 @@ function Home(props) {
     
 
     function test() {
-        
-        console.log(save)
         socket.emit('Clicked', 'Book')
     }
 
     socket.on('saved', function() {
-        console.log('alert!!!')
+        setSave(true)
     })
 
     return (
@@ -62,6 +60,9 @@ function Home(props) {
                         </button>
                     </form>
                 </div>
+            </div>
+            <div className="alertDiv">
+                {save ? <SavedAlert /> : undefined}
             </div>
             <div className="searchedWrapper">
                 {show ? <SearchMedia data={res} test={test} /> : undefined}
