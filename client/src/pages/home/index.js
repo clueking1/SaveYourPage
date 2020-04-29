@@ -41,6 +41,10 @@ function Home(props) {
         setSave(true)
     })
 
+    function deleteAlert() {
+        setSave(false)
+    }
+
     return (
         <div className="searchPage">
             <div className="backSearch">
@@ -65,7 +69,7 @@ function Home(props) {
             <div className="alertDiv">
                 {save ? 
                 
-                <SavedAlert /> : undefined}
+                <SavedAlert delAlert={deleteAlert}/> : undefined}
             </div>
             <div className="searchedWrapper">
                 {show ? <SearchMedia data={res} test={test} /> : undefined}
