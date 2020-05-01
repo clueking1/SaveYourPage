@@ -19,7 +19,7 @@ const Example = () => {
     <div>
       <Navbar  expand="md">
         <NavbarBrand href="/">Save Your Page</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler onClick={toggle}><span><i class="fa fa-angle-down" aria-hidden="true"></i></span></NavbarToggler>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
