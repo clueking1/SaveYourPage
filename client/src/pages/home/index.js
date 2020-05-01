@@ -3,6 +3,7 @@ import Navi from '../../component/Nav'
 import SearchMedia from '../../component/searchMedia'
 import API from '../../utils/API'
 import SavedAlert from '../../component/savedAlert'
+import DangerAlert from '../../component/dangerAlert'
 import './style.css'
 import openSocket from 'socket.io-client';
 
@@ -14,6 +15,7 @@ function Home(props) {
     const [search, setSearch] = useState('')
     const [res, setRes] = useState()
     const [show, setShow] = useState(false)
+    const [showAlert, setShowAlert] = useState(false)
     const [save, setSave] = useState(false)
     
 
@@ -22,12 +24,30 @@ function Home(props) {
         
         API.searchBooks(search)
         .then(res => {
-            setRes(res.data)
+            console.log(res)
+            if (res.data.items[0].volumeInfo.title === null) {
+                setShowAlert(true)
+                return
+            } else if (res.data.items[0].volumeInfo.authors[0] === null) {
+                setShowAlert(true)
+            } else if (res.data.items[0].volumeInfo.description === null) {
+                setShowAlert(true)
+            } else if (res.data.items[0].volumeInfo.previewLink === null) {
+                setShowAlert(true)
+            } else if (res.data.items[0].volumeInfo.imageLinks.thumbnail === null) {
+                setShowAlert(true)
+            } else {
+                setRes(res.data)
+                setShowAlert(false)
+            }
         })
         .then(() => {
             setShow(true)
         })
-        
+        .catch(() => {
+            setShowAlert(true)
+        })
+
     }
 
     
@@ -47,7 +67,9 @@ function Home(props) {
    function deleteAlert() {
         setSave(false)
     }
-
+    function deleteDanAlert() {
+        setShowAlert(false)
+    }
     return (
         <div className="searchPage">
             <div className="backSearch">
@@ -73,6 +95,11 @@ function Home(props) {
                 {save ? 
                 
                 <SavedAlert delAlert={deleteAlert}/> : undefined}
+            </div>
+            <div className="alertDiv">
+                {showAlert ? 
+                
+                <DangerAlert delAlert={deleteDanAlert}/> : undefined}
             </div>
           
             <div className="searchedWrapper">

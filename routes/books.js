@@ -4,7 +4,7 @@ let SavedBooks = require('../models/savedBooks')
 router.route('/').get((_, res) => {
     SavedBooks.find()
         .then(books => res.json(books))
-        .catch(err => res.status(400).json('Error: ' + err))
+        .catch(err => res.json('Error'))
 })
 
 router.route('/').post(({ body }, res) => {
