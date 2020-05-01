@@ -26,7 +26,7 @@ app.get("*", (req, res) => {
 
 
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/saveyourpage', 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://heroku_9l2gbt3x:clueking1@ds023042.mlab.com:23042/heroku_9l2gbt3x, 
 { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
 
 const connection = mongoose.connection
