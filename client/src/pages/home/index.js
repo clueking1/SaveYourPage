@@ -7,7 +7,7 @@ import DangerAlert from '../../component/dangerAlert'
 import './style.css'
 import openSocket from 'socket.io-client';
 
-const socket = openSocket('http://localhost:3001');
+const socket = openSocket('https://saveyourpage.herokuapp.com/');
 
 
 function Home(props) {
